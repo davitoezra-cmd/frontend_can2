@@ -1,0 +1,788 @@
+/* =========================================================
+   EMPLOYEE LIFECYCLE — MODERN / SIMPLE / FUTURISTIC
+   Tidak mengubah struktur HTML / fungsi / API
+   ========================================================= */
+
+.lifecycle-page {
+  --lc-bg: #f5f7fb;
+  --lc-card: #ffffff;
+  --lc-border: #e6eaf0;
+  --lc-border-soft: #eef1f5;
+
+  --lc-text: #0f172a;
+  --lc-text-soft: #334155;
+  --lc-muted: #64748b;
+  --lc-muted-light: #94a3b8;
+
+  --lc-primary: #2563eb;
+  --lc-primary-dark: #1d4ed8;
+  --lc-primary-soft: #eff6ff;
+  --lc-primary-border: #dbeafe;
+
+  --lc-success: #15803d;
+  --lc-success-soft: #f0fdf4;
+  --lc-success-border: #dcfce7;
+
+  --lc-warning: #b45309;
+  --lc-warning-soft: #fffbeb;
+  --lc-warning-border: #fef3c7;
+
+  --lc-danger: #b91c1c;
+  --lc-danger-soft: #fef2f2;
+  --lc-danger-border: #fee2e2;
+
+  --lc-purple: #7e22ce;
+  --lc-purple-soft: #faf5ff;
+  --lc-purple-border: #f3e8ff;
+
+  color: var(--lc-text);
+  min-width: 0;
+}
+
+
+/* =========================================================
+   PAGE TYPOGRAPHY
+   ========================================================= */
+
+.lifecycle-page .lc-title {
+  font-weight: 750;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  color: var(--lc-text);
+}
+
+.lifecycle-page .lc-subtitle {
+  color: var(--lc-muted);
+  max-width: 760px;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.lifecycle-page .lc-card {
+  position: relative;
+  background: var(--lc-card);
+  border: 1px solid var(--lc-border);
+  border-radius: 18px;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.025),
+    0 8px 30px rgba(15, 23, 42, 0.045);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.lifecycle-page .lc-card:hover {
+  border-color: #dce3ec;
+  box-shadow:
+    0 2px 4px rgba(15, 23, 42, 0.025),
+    0 14px 36px rgba(15, 23, 42, 0.065);
+}
+
+
+/* =========================================================
+   STAT CARDS
+   ========================================================= */
+
+.lifecycle-page .lc-stat-card {
+  min-height: 118px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+.lifecycle-page .lc-stat-card::after {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  right: -55px;
+  top: -55px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.035);
+  pointer-events: none;
+}
+
+.lifecycle-page .lc-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px;
+  transition: transform 0.2s ease;
+}
+
+.lifecycle-page .lc-stat-card:hover .lc-stat-icon {
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABS
+   ========================================================= */
+
+.lifecycle-page .lc-tabs {
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+  overflow-x: auto;
+  background: #f1f4f8;
+  border: 1px solid #e8ecf1;
+  border-radius: 13px;
+
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.lifecycle-page .lc-tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.lifecycle-page .lc-tabs::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.lifecycle-page .lc-tabs::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+.lifecycle-page .lc-tab {
+  position: relative;
+  border: 0;
+  background: transparent;
+  color: #64748b;
+  font-size: 0.84rem;
+  font-weight: 650;
+  white-space: nowrap;
+  border-radius: 9px;
+  padding: 9px 14px;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.lifecycle-page .lc-tab:hover {
+  color: #334155;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.lifecycle-page .lc-tab.active {
+  color: #0f172a;
+  background: #ffffff;
+  box-shadow:
+    0 1px 3px rgba(15, 23, 42, 0.08),
+    0 1px 1px rgba(15, 23, 42, 0.025);
+}
+
+.lifecycle-page .lc-tab.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--lc-primary);
+  transform: translateX(-50%);
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.lifecycle-page .lc-table {
+  margin-bottom: 0;
+}
+
+.lifecycle-page .lc-table thead th {
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.66rem;
+  font-weight: 750;
+  border-bottom: 1px solid var(--lc-border);
+  background: #f8fafc;
+  white-space: nowrap;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+.lifecycle-page .lc-table tbody td {
+  vertical-align: middle;
+  border-bottom: 1px solid #edf1f5;
+  color: var(--lc-text-soft);
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.lifecycle-page .lc-table tbody tr {
+  transition: background 0.16s ease;
+}
+
+.lifecycle-page .lc-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.lifecycle-page .lc-table tbody tr:hover td {
+  background: #fbfdff;
+}
+
+
+/* =========================================================
+   AVATAR
+   ========================================================= */
+
+.lifecycle-page .lc-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 750;
+  font-size: 0.88rem;
+  background: linear-gradient(
+    145deg,
+    #eef2ff,
+    #e0e7ff
+  );
+  color: #3730a3;
+  border: 1px solid #e0e7ff;
+  flex: 0 0 40px;
+}
+
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.lifecycle-page .lc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.7rem;
+  line-height: 1;
+  font-weight: 700;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  letter-spacing: 0.005em;
+}
+
+.lifecycle-page .lc-badge.info {
+  background: var(--lc-primary-soft);
+  color: #1d4ed8;
+  border-color: var(--lc-primary-border);
+}
+
+.lifecycle-page .lc-badge.success {
+  background: var(--lc-success-soft);
+  color: var(--lc-success);
+  border-color: var(--lc-success-border);
+}
+
+.lifecycle-page .lc-badge.warning {
+  background: var(--lc-warning-soft);
+  color: var(--lc-warning);
+  border-color: var(--lc-warning-border);
+}
+
+.lifecycle-page .lc-badge.danger {
+  background: var(--lc-danger-soft);
+  color: var(--lc-danger);
+  border-color: var(--lc-danger-border);
+}
+
+.lifecycle-page .lc-badge.neutral {
+  background: #f8fafc;
+  color: #475569;
+  border-color: var(--lc-border);
+}
+
+.lifecycle-page .lc-badge.purple {
+  background: var(--lc-purple-soft);
+  color: var(--lc-purple);
+  border-color: var(--lc-purple-border);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.lifecycle-page .lc-empty {
+  min-height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--lc-muted);
+  padding: 30px 20px;
+}
+
+.lifecycle-page .lc-empty-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e7edf3;
+}
+
+
+/* =========================================================
+   MODAL BACKDROP
+   ========================================================= */
+
+.lifecycle-page .lc-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1090;
+  background: rgba(15, 23, 42, 0.58);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  overflow-y: auto;
+  animation: lc-fade-in 0.18s ease-out;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.lifecycle-page .lc-modal {
+  width: 100%;
+  max-width: 620px;
+  max-height: min(90dvh, 820px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 20px;
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.24),
+    0 8px 24px rgba(15, 23, 42, 0.08);
+  animation: lc-modal-in 0.2s ease-out;
+}
+
+.lifecycle-page .lc-modal.lc-modal-lg {
+  max-width: 880px;
+}
+
+.lifecycle-page .lc-modal-body {
+  overflow-y: auto;
+  padding: 22px;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.lifecycle-page .lc-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lifecycle-page .lc-modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.lifecycle-page .lc-modal-body::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+
+/* =========================================================
+   TASK ROW
+   ========================================================= */
+
+.lifecycle-page .lc-task-row {
+  border: 1px solid var(--lc-border);
+  border-radius: 13px;
+  padding: 13px;
+  background: #ffffff;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.lifecycle-page .lc-task-row:hover {
+  border-color: #d8e0ea;
+  background: #fbfdff;
+  box-shadow: 0 5px 16px rgba(15, 23, 42, 0.04);
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.lifecycle-page .lc-timeline {
+  position: relative;
+  padding-left: 27px;
+}
+
+.lifecycle-page .lc-timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    #dbe3ec,
+    #eef2f6
+  );
+}
+
+.lifecycle-page .lc-timeline-item {
+  position: relative;
+  padding: 0 0 24px 9px;
+}
+
+.lifecycle-page .lc-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.lifecycle-page .lc-timeline-dot {
+  position: absolute;
+  left: -24px;
+  top: 3px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 0 0 1px #cbd5e1;
+  background: #cbd5e1;
+  transition: transform 0.2s ease;
+}
+
+.lifecycle-page .lc-timeline-item:hover .lc-timeline-dot {
+  transform: scale(1.08);
+}
+
+.lifecycle-page .lc-timeline-item.done .lc-timeline-dot {
+  background: #22c55e;
+  box-shadow: 0 0 0 1px #86efac;
+}
+
+.lifecycle-page .lc-timeline-item.current .lc-timeline-dot {
+  background: #2563eb;
+  box-shadow:
+    0 0 0 1px #93c5fd,
+    0 0 0 5px rgba(37, 99, 235, 0.07);
+}
+
+
+/* =========================================================
+   INFO STRIP
+   ========================================================= */
+
+.lifecycle-page .lc-info-strip {
+  border: 1px solid #dbeafe;
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff 0%,
+      #f8fbff 100%
+    );
+  color: #1e40af;
+  border-radius: 13px;
+  padding: 13px 15px;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.035);
+}
+
+
+/* =========================================================
+   ALERT
+   ========================================================= */
+
+.lifecycle-page .alert-danger-subtle {
+  background: #fff7f7;
+  border-color: #fee2e2;
+  color: #991b1b;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.lifecycle-page .btn-light {
+  border-color: var(--lc-border);
+  background: #ffffff;
+  color: #334155;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.lifecycle-page .btn-light:hover {
+  background: #f8fafc;
+  border-color: #d7dee8;
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  transform: translateY(-1px);
+}
+
+.lifecycle-page .btn-light:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   UTILITY
+   ========================================================= */
+
+.lifecycle-page .min-w-0 {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   SPINNER
+   ========================================================= */
+
+.lifecycle-page .spin {
+  animation: lc-spin 0.8s linear infinite;
+}
+
+@keyframes lc-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes lc-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lc-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================================
+   LARGE TABLET / LAPTOP
+   ========================================================= */
+
+@media (max-width: 1199.98px) {
+  .lifecycle-page .lc-tabs {
+    width: 100%;
+  }
+
+  .lifecycle-page .lc-card {
+    border-radius: 16px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+  .lifecycle-page .lc-title {
+    font-size: 1.35rem;
+    letter-spacing: -0.025em;
+  }
+
+  .lifecycle-page .lc-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .lifecycle-page .lc-card {
+    border-radius: 15px;
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.025),
+      0 6px 22px rgba(15, 23, 42, 0.04);
+  }
+
+  .lifecycle-page .lc-stat-card {
+    min-height: 104px;
+  }
+
+  .lifecycle-page .lc-stat-icon {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+    border-radius: 11px;
+  }
+
+  .lifecycle-page .lc-tabs {
+    border-radius: 11px;
+    padding: 4px;
+  }
+
+  .lifecycle-page .lc-tab {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .lifecycle-page .lc-table thead th {
+    font-size: 0.62rem;
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+
+  .lifecycle-page .lc-table tbody td {
+    font-size: 0.85rem;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .lifecycle-page .lc-avatar {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+  }
+
+  .lifecycle-page .lc-badge {
+    font-size: 0.67rem;
+    padding: 5px 8px;
+  }
+
+  .lifecycle-page .lc-empty {
+    min-height: 220px;
+  }
+
+  .lifecycle-page .lc-modal-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .lifecycle-page .lc-modal {
+    max-width: none;
+    max-height: 92dvh;
+    border-radius: 20px 20px 0 0;
+    border-bottom: 0;
+    animation: lc-mobile-modal-in 0.22s ease-out;
+  }
+
+  .lifecycle-page .lc-modal-body {
+    padding: 17px;
+  }
+
+  .lifecycle-page .lc-modal.lc-modal-lg {
+    max-width: none;
+  }
+
+  .lifecycle-page .lc-task-row {
+    border-radius: 12px;
+    padding: 11px;
+  }
+
+  .lifecycle-page .lc-timeline {
+    padding-left: 24px;
+  }
+
+  .lifecycle-page .lc-timeline-item {
+    padding-left: 7px;
+  }
+
+  .lifecycle-page .lc-info-strip {
+    border-radius: 11px;
+    padding: 11px 12px;
+  }
+}
+
+@keyframes lc-mobile-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 399.98px) {
+
+  .lifecycle-page .lc-title {
+    font-size: 1.2rem;
+  }
+
+  .lifecycle-page .lc-stat-card {
+    min-height: 96px;
+  }
+
+  .lifecycle-page .lc-tab {
+    font-size: 0.76rem;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .lifecycle-page .lc-modal-body {
+    padding: 14px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .lifecycle-page *,
+  .lifecycle-page *::before,
+  .lifecycle-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

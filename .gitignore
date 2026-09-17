@@ -1,0 +1,7 @@
+node_modules/
+dist/
+build/
+*.pem
+.env
+.env.*
+!.env.example

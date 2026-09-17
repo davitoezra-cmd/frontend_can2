@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+
+:root {
+  --bg-dark: #070a13;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --border-glow: rgba(56, 189, 248, 0.2);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-cyan: #38bdf8;
+  --accent-blue: #3b82f6;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(56, 189, 248, 0.1) 0px, transparent 40%),
+    radial-gradient(at 85% 85%, rgba(59, 130, 246, 0.1) 0px, transparent 40%);
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* --- BOOTSTRAP OVERRIDES --- */
+.card, .glass-card {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glow) !important;
+  border-radius: 16px !important;
+  color: var(--text-main) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-header {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-bottom: 1px solid var(--border-glow) !important;
+}
+
+.table-dark-custom {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--text-main);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.form-control-futuristic {
+  background: rgba(15, 23, 42, 0.8) !important;
+  border: 1px solid var(--border-glow) !important;
+  color: #ffffff !important;
+  border-radius: 10px;
+}
+
+.form-control-futuristic:focus {
+  border-color: var(--accent-cyan) !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3) !important;
+}
+
+/* Sidebar Custom Styling */
+.sidebar-wrapper {
+  width: 250px;
+  min-height: 100vh;
+  background: #030712;
+  border-right: 1px solid var(--border-glow);
+}
+
+.nav-link-custom {
+  color: var(--text-muted);
+  border-radius: 10px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav-link-custom:hover, .nav-link-custom.active {
+  color: #ffffff;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.btn-glow-primary {
+  background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-glow-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+  color: #ffffff;
+}
+.dropdown-custom {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu-custom {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1050;
+  min-width: 190px;
+  padding: 0.5rem 0;
+  margin: 0.25rem 0 0 0;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  list-style: none;      /* hilangkan bullet */
+}
+
+.dropdown-menu-custom li {
+  list-style: none;
+  margin: 0;
+}
+
+.dropdown-menu-custom .dropdown-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  color: #212529;
+  text-decoration: none;   /* buat elemen <a> Download */
+  cursor: pointer;
+}
+
+.dropdown-menu-custom .dropdown-item:hover,
+.dropdown-menu-custom .dropdown-item:focus {
+  background-color: #f1f3f5;
+  color: #212529;
+  outline: none;
+}
+
+.dropdown-menu-custom .dropdown-item.text-danger:hover {
+  background-color: #fdecea;
+  color: #dc3545;
+}
+
+.dropdown-menu-custom .dropdown-item i {
+  width: 1.1rem;
+  text-align: center;
+  margin-right: 0.5rem;
+}
+
+.dropdown-menu-custom .dropdown-divider {
+  margin: 0.25rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
